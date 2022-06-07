@@ -1,0 +1,64 @@
+[build-system]
+requires = ["flit_core>=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "wyze_pyhap"
+authors = [
+    {name = "Justin Slay", email = "justin.slay@gmail.com"},
+]
+dependencies = [
+    "colorutils==0.3.0",
+    "HAP-python[QRCode]==4.4.0",
+    "psutil==5.9.1",
+    "pydantic==1.9.1",
+    "wyze-sdk==1.3.0",
+]
+requires-python = ">=3.8"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dynamic = [
+    "version",
+    "description",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "coverage",
+    "diff-cover",
+    "flake8",
+    "isort",
+    "pre-commit",
+    "pytest>=2.7.3",
+]
+test = [
+    "tox",
+]
+
+[project.urls]
+Source = "https://github.com/jslay88/wyze_pyhap"
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+lines_after_imports = 2
+skip = [".tox", "venv"]
